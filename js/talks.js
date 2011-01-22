@@ -4,7 +4,6 @@
     var settings = {};
     var slides = [];
     var root, header, footer;
-    var offset = 3;
     var current = 0;
     var invisible = "slides-invisible";
 
@@ -14,19 +13,20 @@
         footer = root.find("> footer");
 
         /* Make header, footer and (slides > 1) invisible. */
-        slides = [root, header, footer];
         root.addClass("slides").children("section").each(function () {
             slides.push($(this));
         });
-        $.each(slides.slice(offset + 1), function () {
+        $.each(slides.slice(1), function () {
             $(this).addClass(invisible);
         });
     };
 
     function gotoslide (index) {
-        slides[current + offset].addClass(invisible);
+        if (index >= slides.length || index < 0)
+            return;
+        slides[current].addClass(invisible);
+        slides[index].removeClass(invisible);
         current = index;
-        slides[current + offset].removeClass(invisible);
     };
 
     function nextslide () {
