@@ -1,5 +1,19 @@
 (function ($) {
     var defaults = {
+        bindings: {
+            8: prevslide,  // backspace
+            37: prevslide, // left
+            38: prevslide, // up
+            39: nextslide, // right
+            40: nextslide, // down
+            72: prevslide, // h
+            75: prevslide, // k
+            74: nextslide, // j
+            76: nextslide, // l
+            78: nextslide, // n
+            80: nextslide, // p
+            32: nextslide, // space
+        },
     };
     var settings = {};
     var slides = [];
@@ -44,4 +58,13 @@
             initslides(this, settings);
         });
     };
+
+    $(document).keydown(function (event) {
+        var key = (event.keyCode ? event.keyCode : event.which);
+        var fn = settings.bindings[key];
+        if (fn) {
+            fn();
+            return false;
+        };
+    });
 })(jQuery);
