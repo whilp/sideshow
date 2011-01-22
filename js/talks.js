@@ -4,6 +4,7 @@
     var settings = {};
     var slides = [];
     var root, header, footer;
+    var offset = 3;
     var current = 0;
     var invisible = "slides-invisible";
 
@@ -21,6 +22,20 @@
             $(this).addClass(invisible);
         });
     };
+
+    function gotoslide (index) {
+        slides[current + offset].addClass(invisible);
+        current = index;
+        slides[current + offset].removeClass(invisible);
+    };
+
+    function nextslide () {
+        gotoslide(current + 1);
+    }
+
+    function prevslide () {
+        gotoslide(current - 1);
+    }
 
     $.fn.slides = function (options) {
         $.extend(settings, defaults, options);
