@@ -18,7 +18,7 @@
         root.addClass("slides").children("section").each(function () {
             slides.push($(this));
         });
-        $.each(slides.slice(4), function () {
+        $.each(slides.slice(offset + 1), function () {
             $(this).addClass(invisible);
         });
     };
