@@ -16,7 +16,7 @@ footer p {
     margin-left: -300px;
 }
 
-p, ul {
+p, ul, pre {
     margin-left: 10px;
     margin-right: 10px;
 }
