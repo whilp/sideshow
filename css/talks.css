@@ -5,11 +5,11 @@ footer p {
     margin: 0;
 }
 
-article.slides > header,
-article.slides > footer,
-article.slides > section,
-article.slides > section > header,
-article.slides > section > footer {
+.slides > header,
+.slides > footer,
+.slides > section,
+.slides > section > header,
+.slides > section > footer {
     width: 600px;
     position: absolute;
     left: 50%;
@@ -22,17 +22,17 @@ p, ul {
 }
 
 /* talk */
-article.slides > header {
+.slides > header {
     z-index: 100;
     height: 20px;
     background: yellow;
 }
 
-article.slides > header * {
+.slides > header * {
     font-size: 10px;
 }
 
-article.slides > footer {
+.slides > footer {
     z-index: 101;
     top: 380px;
     height: 20px;
@@ -40,20 +40,24 @@ article.slides > footer {
 }
 
 /* slide */
-article.slides > section {
+.slides > section {
     height: 320px;
     background: red;
     padding-top: 80px;
 }
 
-article.slides > section > header {
+.slides > section > header {
     top: 20px;
     height: 40px;
     background: blue;
 }
 
-article.slides > section > footer {
+.slides > section > footer {
     bottom: 20px;
     height: 20px;
     background: green;
+}
+
+.slides-invisible {
+    display: none;
 }
