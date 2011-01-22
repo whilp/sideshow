@@ -1,12 +1,13 @@
 (function ($) {
     var defaults = {
     };
+    var settings = {};
     var slides = [];
     var root, header, footer;
     var current = 0;
     var invisible = "slides-invisible";
 
-    function initslides (element, settings) {
+    function initslides (element) {
         root = $(element);
         header = root.find("> header");
         footer = root.find("> footer");
@@ -22,7 +23,7 @@
     };
 
     $.fn.slides = function (options) {
-        var settings = $.extend({}, defaults, options);
+        $.extend(settings, defaults, options);
 
         return this.each(function () {
             initslides(this, settings);
