@@ -11,7 +11,7 @@
             74: nextslide, // j
             76: nextslide, // l
             78: nextslide, // n
-            80: nextslide, // p
+            80: prevslide, // p
             32: nextslide, // space
         },
     };
