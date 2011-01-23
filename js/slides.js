@@ -53,6 +53,7 @@
         $.fn.slides.hide(slides[current]);
         $.fn.slides.show(slides[index]);
         $.fn.slides.current = index;
+        location.hash = "#slide" + (index + 1);
     };
 
     $.fn.slides.next = function () {
@@ -80,4 +81,12 @@
             return false;
         };
     });
+
+    if ("hashchange" in $(window)) {
+        $(window).hashchange(function () {
+            var hash = location.hash || "slide1",
+                slide = hash.replace(/^#slide/, "");
+            $.fn.slides.goto(parseInt(slide, 10) - 1);
+        });
+    };
 })(jQuery);
