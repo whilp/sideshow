@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<title>A pedantic presenter</title>
+<link rel="stylesheet" type="text/css" href="css/slides.css" />
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="js/jquery-1.4.4.min.js"></script>
+</head>
+<body>
+
+<article>
+
+<header>
+<h1>pedantic presenter</h1>
+</header>
+
+<section>
+
+<header>
+<h1>This is a pedantic presenter</h1>
+</header>
+
+<ul>
+<li>Write an (X)HTML5 document and call <code>$.slides("rootelement")</code></li>
+<li>The root's <code>header</code> and <code>footer</code> tags are on every slide</li>
+<li><code>section</code> tags become slides</li>
+<li>Each <code>section</code>'s <code>header</code> and <code>footer</code> show up, too</li>
+<li>Simple keybindings for navigation: left/up/h/k/p/backspace go back, right/down/j/l/n/space go forward</li>
+<li>See the next slide for an example</li>
+</ul>
+
+<p>You can find/fork the code on github (BSD/MIT/X11 license):</p>
+<p><a href="http://github.com/wcmaier/pedantic-presenter/">http://github.com/wcmaier/pedantic-presenter/</a></p>
+
+<footer>
+<p>(A slide's footer goes here.)</p>
+</footer>
+
+</section>
+
+<section>
+
+<header>
+<h1>An example</h1>
+</header>
+
+<code><pre><![CDATA[
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<title>An example!</title>
+<link rel="stylesheet" type="text/css" href="css/slides.css" />
+<script src="js/jquery-1.4.4.min.js"></script>
+</head>
+<body>
+<article>
+<!-- your slides go here -->
+</article>
+</body>
+</html>
+]]></pre></code>
+
+<p>Continue onward to see an example slide.</p>
+
+</section>
+
+<section>
+
+<header>
+<h1>An example</h1>
+</header>
+
+<p>A simple slide.</p>
+
+<code><pre><![CDATA[
+<section>
+<header>
+<h1>Here's the slide header</h1>
+</header>
+
+<ul>
+<li>Bullets!</li>
+</ul>
+
+<p>Other stuff!</p>
+
+<footer>
+<p>A slide-specific footer (like footnotes).</p>
+</footer>
+</section>
+]]></pre></code>
+
+</section>
+
+<section>
+
+<header>
+<h1>Call the javascript</h1>
+</header>
+
+<p>Set headers and footers on all the slides.</p>
+
+<code><pre><![CDATA[
+<article>
+<!-- slides go here -->
+</article>
+<script src="js/slides.js"></script>
+<script>
+$("article").slides();
+</script>
+]]></pre></code>
+</section>
+
+<section>
+
+<header>
+<h1>Presentation header/footer</h1>
+</header>
+
+<p>Set headers and footers on all the slides.</p>
+
+<code><pre><![CDATA[
+<article>
+<header>
+<h1>A header on every slide (above the slide header)</h1>
+</header>
+
+<footer>
+<p>A footer on every slide (below the slide footer)</p>
+</footer>
+</article>
+]]></pre></code>
+
+</section>
+
+
+<footer>
+<p>This is the talk footer.</p>
+</footer>
+
+</article>
+
+<script src="js/slides.js"></script>
+<script>
+/* <![CDATA[ */
+$("article").slides();
+/* ]]> */
+</script>
+</body>
+</html>
