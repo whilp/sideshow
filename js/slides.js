@@ -21,8 +21,8 @@
     function gotoslide (index) {
         if (index >= slides.length || index < 0)
             return;
-        hideslide(slides[current]);
-        showslide(slides[index]);
+        settings.hide(slides[current]);
+        settings.show(slides[index]);
         current = index;
     };
 
@@ -60,6 +60,8 @@
     });
 
     var defaults = {
+        show: showslide,
+        hide: hideslide,
         duration: 0,
         bindings: {
             8: prevslide,  // backspace
