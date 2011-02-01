@@ -13,6 +13,7 @@
 
     $.fn.slides.defaults = {
         duration: 0,
+        help: true,
         bindings: {
             37: "prev", // left
             38: "prev", // up
@@ -54,6 +55,8 @@
                 $.fn.slides.gotohash();
             });
         };
+
+        $.fn.slides.help();
     };
 
     $.fn.slides.goto = function (index) {
@@ -90,5 +93,16 @@
             hash = location.hash || "#slide1";
         var slide = hash.replace(/^#slide/, "");
         $.fn.slides.goto(parseInt(slide, 10) - 1);
+    };
+
+    $.fn.slides.help = function () {
+        if (! $.fn.slides.settings.help)
+            return;
+        $('<p id="slides-help" class="flash">' + 
+                "This webpage is a presentation: use <kbd>↑</kbd>, <kbd>←</kbd>, <kbd>k</kbd> or <kbd>space</kbd> to go forward " + 
+                "and <kbd>↓</kbd>, <kbd>→</kbd>, or <kbd>j</kbd> to go backwards." + 
+                "</p>")
+            .appendTo("body")
+            .fadeOut(10000);
     };
 })(jQuery);

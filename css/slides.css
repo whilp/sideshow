@@ -81,3 +81,13 @@ p, ul, pre {
     display: table-cell;
     vertical-align: middle;
 }
+
+.flash {
+    text-align: center;
+    padding: 5px 0 5px 0;
+    margin: 0;
+    z-index: 1000;
+    display: block;
+    background: #ccc;
+    opacity: .8;
+}
