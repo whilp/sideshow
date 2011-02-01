@@ -43,7 +43,6 @@
 
         $(document).keydown(function (event) {
             var key = (event.keyCode ? event.keyCode : event.which);
-            console.log(key);
             var fnname = $.fn.slides.settings.bindings[key],
                 fn = $.fn.slides[fnname];
             if (fn) {
