@@ -38,6 +38,22 @@
             $(this).hide();
         });
         $.fn.slides.gotohash();
+
+        $(document).keydown(function (event) {
+            var key = (event.keyCode ? event.keyCode : event.which);
+            var fnname = $.fn.slides.settings.bindings[key],
+                fn = $.fn.slides[fnname];
+            if (fn) {
+                fn();
+                return false;
+            };
+        });
+
+        if ("hashchange" in $(window)) {
+            $(window).hashchange(function () {
+                $.fn.slides.gotohash();
+            });
+        };
     };
 
     $.fn.slides.goto = function (index) {
@@ -74,21 +90,5 @@
             hash = location.hash || "#slide1";
         var slide = hash.replace(/^#slide/, "");
         $.fn.slides.goto(parseInt(slide, 10) - 1);
-    };
-
-    $(document).keydown(function (event) {
-        var key = (event.keyCode ? event.keyCode : event.which);
-        var fnname = $.fn.slides.settings.bindings[key],
-            fn = $.fn.slides[fnname];
-        if (fn) {
-            fn();
-            return false;
-        };
-    });
-
-    if ("hashchange" in $(window)) {
-        $(window).hashchange(function () {
-            $.fn.slides.gotohash();
-        });
     };
 })(jQuery);
