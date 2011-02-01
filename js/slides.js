@@ -16,9 +16,9 @@
         bindings: {
             37: "prev", // left
             38: "prev", // up
+            75: "prev", // k
             39: "next", // right
             40: "next", // down
-            75: "prev", // k
             74: "next", // j
             32: "next", // space
         },
