@@ -83,7 +83,8 @@ p, ul, pre {
     vertical-align: middle;
 }
 
-.flash {
+#flash {
+    display: none;
     text-align: center;
     padding: 5px 0 5px 0;
     margin: 0;

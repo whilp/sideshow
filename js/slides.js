@@ -22,6 +22,7 @@
             40: "next", // down
             74: "next", // j
             32: "next", // space
+            72: "help", // h
         },
     };
 
@@ -42,6 +43,7 @@
 
         $(document).keydown(function (event) {
             var key = (event.keyCode ? event.keyCode : event.which);
+            console.log(key);
             var fnname = $.fn.slides.settings.bindings[key],
                 fn = $.fn.slides[fnname];
             if (fn) {
@@ -56,7 +58,7 @@
             });
         };
 
-        $.fn.slides.help();
+        $.fn.slides.flash("This webpage is a presentation! Press <kbd>h</kbd> for help.");
     };
 
     $.fn.slides.goto = function (index) {
@@ -95,14 +97,25 @@
         $.fn.slides.goto(parseInt(slide, 10) - 1);
     };
 
+    $.fn.slides.flash = function (message, duration) {
+        var elem = $("#flash");
+        var duration = duration >= 0 || 5000;
+        if (elem.length != 0) {
+            elem.remove();
+        }
+
+        $('<p id="flash">' + message + '</p>')
+            .appendTo("body")
+            .show()
+            .fadeOut(duration, function () { $(this).remove(); });
+    };
+
     $.fn.slides.help = function () {
         if (! $.fn.slides.settings.help)
             return;
-        $('<p id="slides-help" class="flash">' + 
-                "This webpage is a presentation: use <kbd>↑</kbd>, <kbd>←</kbd>, <kbd>k</kbd> or <kbd>space</kbd> to go forward " + 
-                "and <kbd>↓</kbd>, <kbd>→</kbd>, or <kbd>j</kbd> to go backwards." + 
-                "</p>")
-            .appendTo("body")
-            .fadeOut(10000);
+        $.fn.slides.flash(
+                "Keys: " + 
+                "<kbd>↑</kbd>, <kbd>←</kbd>, <kbd>k</kbd> or <kbd>space</kbd> to go forward; " + 
+                "<kbd>↓</kbd>, <kbd>→</kbd>, or <kbd>j</kbd> to go backward.");
     };
 })(jQuery);
