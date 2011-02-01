@@ -43,6 +43,7 @@ p, ul, pre {
     height: 85px;
     margin-top: 265px;
     text-align: right;
+    background: none;
 }
 
 /* slide */
@@ -90,4 +91,5 @@ p, ul, pre {
     display: block;
     background: #ccc;
     opacity: .8;
+    font-size: .9em;
 }
