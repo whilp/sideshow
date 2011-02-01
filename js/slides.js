@@ -14,17 +14,12 @@
     $.fn.slides.defaults = {
         duration: 0,
         bindings: {
-            8:  "prev", // backspace
             37: "prev", // left
             38: "prev", // up
             39: "next", // right
             40: "next", // down
-            72: "prev", // h
             75: "prev", // k
             74: "next", // j
-            76: "next", // l
-            78: "next", // n
-            80: "prev", // p
             32: "next", // space
         },
     };
