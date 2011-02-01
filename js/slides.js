@@ -69,8 +69,10 @@
     };
 
     $.fn.slides.gotohash = function (hash) {
-        var hash = hash || location.hash || "slide1",
-            slide = hash.replace(/^#slide/, "");
+        var hash = hash;
+        if (typeof hash == "undefined")
+            hash = location.hash || "#slide1";
+        var slide = hash.replace(/^#slide/, "");
         $.fn.slides.goto(parseInt(slide, 10) - 1);
     };
 
