@@ -44,7 +44,7 @@
         var slides = $.fn.slides.slides,
             current = $.fn.slides.current,
             settings = $.fn.slides.settings;
-        if (index >= slides.length || index < 0)
+        if (index >= slides.length || index < 0 || (index > 1 && index == current))
             return;
         $.fn.slides.hide(slides[current]);
         $.fn.slides.show(slides[index]);
