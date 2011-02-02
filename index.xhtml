@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <title>Sideshow — XHTML5/JS/CSS presentations</title>
-<link rel="stylesheet" type="text/css" href="css/slides.css" />
+<link rel="stylesheet" type="text/css" href="css/sideshow.css" />
 <!--[if IE]>
 <script src="js/html5.js"></script>
 <![endif]-->
@@ -35,9 +35,9 @@
 
 <ul>
 <li>Start with a (X)HTML5 document with <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> tags</li>
-<li>Load slides.css</li>
-<li>Load jQuery, jQuery-hashchange and slides.js</li>
-<li>Add a <code>&lt;script&gt;</code> at the end and call <code>$.slides("article")</code></li>
+<li>Load sideshow.css</li>
+<li>Load jQuery, jQuery-hashchange and sideshow.js</li>
+<li>Add a <code>&lt;script&gt;</code> at the end and call <code>$.sideshow("article")</code></li>
 <li>The <code>&lt;article&gt;</code> becomes the presentation</li>
 <ul>
 <li>Each <code>&lt;section&gt;</code> within the <code>&lt;article&gt;</code> will become a slide</li>
@@ -57,19 +57,19 @@
 <ul>
 <li>Theme your presentation with CSS</li>
 <ul>
-<li>The presentation root will be tagged with a <code>slides</code> class</li>
+<li>The presentation root will be tagged with a <code>sideshow</code> class</li>
 <li>Useful selectors:</li>
 <ul>
-<li><code>.slides &gt; header</code> — the presentation header</li>
-<li><code>.slides &gt; footer</code> — the presentation footer</li>
-<li><code>.slides &gt; section</code> — the slides</li>
-<li><code>.slides &gt; section &gt; header</code> — the slide headers</li>
-<li><code>.slides &gt; section &gt; footer</code> — the slide footers</li>
+<li><code>.sideshow &gt; header</code> — the presentation header</li>
+<li><code>.sideshow &gt; footer</code> — the presentation footer</li>
+<li><code>.sideshow &gt; section</code> — the slides</li>
+<li><code>.sideshow &gt; section &gt; header</code> — the slide headers</li>
+<li><code>.sideshow &gt; section &gt; footer</code> — the slide footers</li>
 </ul>
 </ul>
 <li>Extend Sideshow</li>
 <ul>
-<li>There are lots of points to hook in — see slides.js</li>
+<li>There are lots of points to hook in — see sideshow.js</li>
 </ul>
 </ul>
 </section>
@@ -78,10 +78,10 @@
 
 <script src="js/jquery-1.4.4.min.js"></script>
 <script src="js/jquery-hashchange-1.3.min.js"></script>
-<script src="js/slides.js"></script>
+<script src="js/sideshow.js"></script>
 <script>
 /* <![CDATA[ */
-$("article").slides();
+$("article").sideshow();
 /* ]]> */
 </script>
 </body>

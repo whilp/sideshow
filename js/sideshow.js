@@ -1,17 +1,17 @@
 (function ($) {
-    $.fn.slides = function (options) {
-        $.extend($.fn.slides.settings, $.fn.slides.defaults, options);
+    $.fn.sideshow = function (options) {
+        $.extend($.fn.sideshow.settings, $.fn.sideshow.defaults, options);
 
         return this.each(function () {
-            $.fn.slides.init(this);
+            $.fn.sideshow.init(this);
         });
     };
 
-    $.fn.slides.settings = {},
-    $.fn.slides.slides = [];
-    $.fn.slides.current = 0;
+    $.fn.sideshow.settings = {},
+    $.fn.sideshow.slides = [];
+    $.fn.sideshow.current = 0;
 
-    $.fn.slides.defaults = {
+    $.fn.sideshow.defaults = {
         duration: 0,
         help: true,
         bindings: {
@@ -26,11 +26,11 @@
         },
     };
 
-    $.fn.slides.init = function (element) {
-        $.fn.slides.root = root = $(element);
-        $.fn.slides.header = header = root.find("> header");
-        $.fn.slides.footer = footer = root.find("> footer");
-        var slides = $.fn.slides.slides;
+    $.fn.sideshow.init = function (element) {
+        $.fn.sideshow.root = root = $(element);
+        $.fn.sideshow.header = header = root.find("> header");
+        $.fn.sideshow.footer = footer = root.find("> footer");
+        var slides = $.fn.sideshow.slides;
 
         /* Hide header, footer and (slides > 1). */
         root.addClass("slides").children("section").each(function () {
@@ -39,12 +39,12 @@
         $.each(slides.slice(1), function () {
             $(this).hide();
         });
-        $.fn.slides.gotohash();
+        $.fn.sideshow.gotohash();
 
         $(document).keydown(function (event) {
             var key = (event.keyCode ? event.keyCode : event.which);
-            var fnname = $.fn.slides.settings.bindings[key],
-                fn = $.fn.slides[fnname];
+            var fnname = $.fn.sideshow.settings.bindings[key],
+                fn = $.fn.sideshow[fnname];
             if (fn) {
                 fn();
                 return false;
@@ -53,50 +53,50 @@
 
         if ("hashchange" in $(window)) {
             $(window).hashchange(function () {
-                $.fn.slides.gotohash();
+                $.fn.sideshow.gotohash();
             });
         };
 
-        $.fn.slides.flash("This webpage is a presentation! Press <kbd>h</kbd> for help.");
+        $.fn.sideshow.flash("This webpage is a presentation! Press <kbd>h</kbd> for help.");
     };
 
-    $.fn.slides.goto = function (index) {
-        var slides = $.fn.slides.slides,
-            current = $.fn.slides.current,
-            settings = $.fn.slides.settings;
+    $.fn.sideshow.goto = function (index) {
+        var slides = $.fn.sideshow.slides,
+            current = $.fn.sideshow.current,
+            settings = $.fn.sideshow.settings;
         if (index >= slides.length || index < 0 || (index > 1 && index == current))
             return;
-        $.fn.slides.hide(slides[current]);
-        $.fn.slides.show(slides[index]);
-        $.fn.slides.current = index;
+        $.fn.sideshow.hide(slides[current]);
+        $.fn.sideshow.show(slides[index]);
+        $.fn.sideshow.current = index;
         location.hash = "#slide" + (index + 1);
     };
 
-    $.fn.slides.next = function () {
-        $.fn.slides.goto($.fn.slides.current + 1);
+    $.fn.sideshow.next = function () {
+        $.fn.sideshow.goto($.fn.sideshow.current + 1);
     }
 
-    $.fn.slides.prev = function () {
-        $.fn.slides.goto($.fn.slides.current - 1);
+    $.fn.sideshow.prev = function () {
+        $.fn.sideshow.goto($.fn.sideshow.current - 1);
     }
 
-    $.fn.slides.show = function (slide) {
-        slide.show($.fn.slides.settings.duration);
+    $.fn.sideshow.show = function (slide) {
+        slide.show($.fn.sideshow.settings.duration);
     };
 
-    $.fn.slides.hide = function (slide) {
-        slide.hide($.fn.slides.settings.duration);
+    $.fn.sideshow.hide = function (slide) {
+        slide.hide($.fn.sideshow.settings.duration);
     };
 
-    $.fn.slides.gotohash = function (hash) {
+    $.fn.sideshow.gotohash = function (hash) {
         var hash = hash;
         if (typeof hash == "undefined")
             hash = location.hash || "#slide1";
         var slide = hash.replace(/^#slide/, "");
-        $.fn.slides.goto(parseInt(slide, 10) - 1);
+        $.fn.sideshow.goto(parseInt(slide, 10) - 1);
     };
 
-    $.fn.slides.flash = function (message, duration) {
+    $.fn.sideshow.flash = function (message, duration) {
         var elem = $("#flash");
         var duration = duration >= 0 || 5000;
         if (elem.length != 0) {
@@ -109,10 +109,10 @@
             .fadeOut(duration, function () { $(this).remove(); });
     };
 
-    $.fn.slides.help = function () {
-        if (! $.fn.slides.settings.help)
+    $.fn.sideshow.help = function () {
+        if (! $.fn.sideshow.settings.help)
             return;
-        $.fn.slides.flash(
+        $.fn.sideshow.flash(
                 "Keys: " + 
                 "<kbd>↑</kbd>, <kbd>←</kbd>, <kbd>k</kbd> or <kbd>space</kbd> to go forward; " + 
                 "<kbd>↓</kbd>, <kbd>→</kbd>, or <kbd>j</kbd> to go backward.");
