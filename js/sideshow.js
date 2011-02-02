@@ -57,7 +57,8 @@
             });
         };
 
-        $.fn.sideshow.flash("This webpage is a presentation! Press <kbd>h</kbd> for help.");
+        if ($.fn.sideshow.settings.help)
+            $.fn.sideshow.flash("This webpage is a presentation! Press <kbd>h</kbd> for help.");
     };
 
     $.fn.sideshow.goto = function (index) {
