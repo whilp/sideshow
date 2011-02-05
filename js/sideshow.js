@@ -41,7 +41,8 @@
         });
         $.fn.sideshow.gotohash();
 
-        $(document).keydown(function (event) {
+        var $document = $(document);
+        $document.keydown(function (event) {
             var key = (event.keyCode ? event.keyCode : event.which);
             var fnname = $.fn.sideshow.settings.bindings[key],
                 fn = $.fn.sideshow[fnname];
