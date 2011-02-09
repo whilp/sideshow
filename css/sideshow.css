@@ -103,8 +103,7 @@ p, ul, pre {
 
 .middle {
     text-align: center;
-    display: table-cell;
-    vertical-align: middle;
+    margin-top: 25%;
 }
 
 #flash {
