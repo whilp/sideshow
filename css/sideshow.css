@@ -19,7 +19,6 @@ body {
 p, li, dt, dd, time {
   font-size: 1.5em;
   line-height: 1.5em;
-  text-align: justify;
 }
 
 li, dd {
