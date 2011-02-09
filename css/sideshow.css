@@ -108,9 +108,22 @@ p, ul, pre {
     text-align: center;
 }
 
-.middle {
-    text-align: center;
-    margin-top: 25%;
+ul.meta,
+ul.inline,
+ul.logos {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+ul.meta,
+ul.logos {
+    padding-top: 10%;
+}
+
+ul.logos li,
+ul.inline li {
+    display: inline;
 }
 
 #flash {
