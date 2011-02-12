@@ -10,11 +10,9 @@ footer p {
 body {
     font-size: 120%;
     line-height: 1.125em;
-    background: #ddd;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+    background: #fff;
     color: #000;
+    height: 100%;
 }
 
 a {
@@ -43,61 +41,58 @@ h1, h2, h3, h4, h5, h6 {
 .slides > section > header,
 .slides > section > footer {
     position: absolute;
-    width: 900px;
-    height: 700px;
-    top: 50%;
-    left: 50%;
-    margin-top: -350px;
-    margin-left: -450px;
+    width: 100%;
     overflow: hidden;
-    background: #fff;
+    background: none;
+    display: block;
 }
 
-p, ul, pre {
+p, ul, pre,
+h1, h2, h3, h4, h5, h6 {
     margin-left: 10px;
     margin-right: 10px;
 }
 
 /* talk */
 .slides > header {
+    position: absolute;
+    top: 0;
     z-index: 100;
-    height: 20px;
+    height: 5%;
 }
 
 .slides > header * {
     z-index: 100;
-    height: 50px;
 }
 
 .slides > footer {
+    position: absolute;
     z-index: 101;
-    height: 85px;
-    margin-top: 265px;
+    height: 5%;
+    bottom: 0;
     text-align: right;
-    background: none;
 }
 
 /* slide */
 .slides > section {
-}
-
-.slides > section > header + * {
-    margin-top: 130px;
+    top: 0;
+    height: 100%;
 }
 
 .slides > section > header {
-    margin-top: -300px;
-    height: 70px;
+    top: 5%;
+    height: 10%;
 }
 
 .slides > section > footer {
     z-index: 102;
-    height: 70px;
-    margin-top: 195px;
-    background: none;
-    height: 85px;
-    margin-top: 265px;
+    height: 10%;
+    bottom: 5%;
 }
+
+.slides > section > header + * {
+    padding-top: 10%;
+ }
 
 .slides-invisible {
     display: none;
@@ -116,9 +111,8 @@ ul.logos {
     list-style-type: none;
 }
 
-ul.meta,
-ul.logos {
-    padding-top: 10%;
+ul.meta {
+    padding-top: 20%;
 }
 
 ul.logos li,
