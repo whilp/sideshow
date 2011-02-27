@@ -37,7 +37,7 @@
             slides.push($(this));
         });
         $.each(slides.slice(1), function () {
-            $(this).hide();
+            $(this).addClass('slides-invisible');
         });
         $.fn.sideshow.gotohash();
 
@@ -83,11 +83,11 @@
     }
 
     $.fn.sideshow.show = function (slide) {
-        slide.show($.fn.sideshow.settings.duration);
+        slide.removeClass('slides-invisible');
     };
 
     $.fn.sideshow.hide = function (slide) {
-        slide.hide($.fn.sideshow.settings.duration);
+        slide.addClass('slides-invisible');
     };
 
     $.fn.sideshow.gotohash = function (hash) {

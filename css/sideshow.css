@@ -35,12 +35,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 2em;
 }
 
+h1 { font-size: 2em; }
+
 .slides > header,
 .slides > footer,
-.slides > section,
 .slides > section > header,
 .slides > section > footer {
-    position: absolute;
     width: 100%;
     overflow: hidden;
     background: none;
@@ -55,8 +55,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* talk */
 .slides > header {
-    position: absolute;
-    top: 0;
+    position: relative;
+    padding: 10px;
+    top: 4em;
     z-index: 100;
     height: 5%;
 }
@@ -74,9 +75,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* slide */
-.slides > section {
-    top: 0;
-    height: 100%;
+@media screen {
+    .slides > section {
+        top: 0;
+        height: 100%;
+    }
+    .slides .slides-invisible {
+        display: none; !important
+    }
+}
+
+@media print {
+    body {
+        font-size: 1.0em;
+    }
+    p, ul, ol, dl, pre,
+    h1, h2, h3, h4, h5, h6 {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    section {
+        page-break-after: always;
+    }
 }
 
 .slides > section > header {
@@ -90,13 +110,14 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 5%;
 }
 
-.slides > section > header + * {
-    padding-top: 10%;
- }
+/* .slides > section > header + * { */
+    /* padding-top: 10%; */
+ /* } */
 
-.slides-invisible {
-    display: none;
+.slides > section > ul {
+    padding: auto;
 }
+
 
 /* utility classes */
 .center {
@@ -121,6 +142,9 @@ ul.inline li {
 }
 
 #flash {
+    position: absolute;
+    width: 100%;
+    top: 0;
     display: none;
     text-align: center;
     padding: 5px 0 5px 0;
