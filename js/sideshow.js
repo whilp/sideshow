@@ -23,7 +23,7 @@
             74: "next", // j
             32: "next", // space
             72: "help", // h
-        },
+        }
     };
 
     $.fn.sideshow.init = function (element) {
