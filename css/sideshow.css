@@ -132,10 +132,6 @@ ul.logos {
     list-style-type: none;
 }
 
-ul.meta {
-    padding-top: 20%;
-}
-
 ul.logos li,
 ul.inline li {
     display: inline;
