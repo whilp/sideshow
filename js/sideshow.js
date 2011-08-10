@@ -1,4 +1,6 @@
 var sideshow = function () {
+    var slides = [];
+
     function hasClass (elem, cls) {
         var names = elem.className.split(" ");
         for (var i = 0; i < names; i++) {
@@ -29,10 +31,11 @@ var sideshow = function () {
 
     function init (root) {
         var root = document.getElementById(root);
-        var sections = root.getElementsByTagName("section");
+        slides = root.getElementsByTagName("section");
 
-        for (var i = 0; i < sections.length; i++) {
-            addClass(sections[i], "slide");
+        addClass(slides[0], "current-slide");
+        for (var i = 0; i < slides.length; i++) {
+            addClass(slides[i], "slide");
         }
     }
     return {
