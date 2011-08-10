@@ -45,6 +45,7 @@ var sideshow = function () {
         }
         goto(0);
     }
+
     return {
         init: init,
         goto: goto,
