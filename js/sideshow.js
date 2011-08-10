@@ -46,7 +46,7 @@ var sideshow = function () {
     }
 
     function goto (index) {
-        if (index > slides.length)
+        if (index >= slides.length || index < 0)
             return;
         removeClass(slides[current], "current-slide");
         current = index;
