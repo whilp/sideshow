@@ -14,7 +14,7 @@ var sideshow = function () {
     }
 
     function removeClass (elem, cls) {
-        var names = elem.className.split(" "),
+        var names = elem.className.split(" ");
         for (var i = 0; i < names.length; i++) {
             if (names[i] == cls)
                 names.splice(i, 1);
