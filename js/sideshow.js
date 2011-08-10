@@ -45,6 +45,7 @@ var sideshow = function () {
         for (var i = 0; i < slides.length; i++) {
             addClass(slides[i], "slide");
         }
+
         goto(0);
     }
 
