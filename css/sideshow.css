@@ -1,11 +1,26 @@
 .slide {
-    top: 0;
-    height: 100%;
     width: 100%;
-    display: none;
     background: none;
 }
 
 .current-slide {
     display: block;
+}
+
+@media screen {
+    .slide {
+        top: 0;
+        height: 100%;
+        display: none;
+    }
+
+    .current-slide {
+        display: block;
+    }
+}
+
+@media print {
+    .slide {
+        page-break-after: always;
+    }
 }
