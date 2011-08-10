@@ -9,8 +9,13 @@ var sideshow = function () {
     }
 
     function addClass (elem, cls) {
-        if (!hasClass(elem, cls))
-            elem.className += " " + cls;
+        var names = elem.className.split(" ");
+        for (var i = 0; i < names.length; i++) {
+            if (names[i] == cls)
+                return;
+        }
+        names.push(cls);
+        elem.className = names.join(" ");
     }
 
     function removeClass (elem, cls) {
