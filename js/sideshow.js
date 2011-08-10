@@ -75,7 +75,7 @@ var sideshow = function () {
 
         hashHandler();
 
-        document.onkeypress = keyHandler;
+        document.onkeydown = keyHandler;
         window.onhashchange = hashHandler;
     }
 
