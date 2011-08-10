@@ -42,7 +42,8 @@ var sideshow = function () {
         var event = window.event ? window.event : event;
         var key = event.charCode ? event.charCode : event.keyCode;
 
-        bindings[key]();
+        if (bindings[key])
+            bindings[key]();
     }
 
     function hashHandler () {
