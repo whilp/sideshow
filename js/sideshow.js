@@ -49,6 +49,8 @@ var sideshow = function () {
     }
 
     return {
+        current: current,
+        slides: slides,
         init: init,
         goto: goto,
     }
