@@ -1,5 +1,6 @@
 var sideshow = function () {
-    var slides = [];
+    var slides = [],
+        current = 0;
 
     function hasClass (elem, cls) {
         var names = elem.className.split(" ");
@@ -29,16 +30,23 @@ var sideshow = function () {
         elem.className = names.join(" ");
     }
 
+    function goto (index) {
+        removeClass(slides[current], "current-slide");
+        current = index;
+        addClass(slides[current], "current-slide");
+    }
+
     function init (root) {
         var root = document.getElementById(root);
         slides = root.getElementsByTagName("section");
 
-        addClass(slides[0], "current-slide");
         for (var i = 0; i < slides.length; i++) {
             addClass(slides[i], "slide");
         }
+        goto(0);
     }
     return {
         init: init,
+        goto: goto,
     }
 }();
