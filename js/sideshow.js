@@ -24,7 +24,7 @@ var sideshow = function () {
 
     function init (root) {
         var root = document.getElementById(root);
-        var sections = root.getElementsByTag("section");
+        var sections = root.getElementsByTagName("section");
 
         for (var i = 0; i < sections.length; i++) {
             addClass(sections[i], "slide");
