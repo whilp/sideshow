@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8" />
-<title>Sideshow — XHTML5/JS/CSS presentations</title>
+<title>Sideshow — minimal XHTML5/JS/CSS presentations</title>
 <link rel="stylesheet" type="text/css" href="css/sideshow.css" />
 <!--[if IE]>
 <script src="js/html5.js"></script>
@@ -14,7 +14,7 @@
 
 <section>
 <header>
-<h1>Sideshow — XHTML5/JS/CSS presentations</h1>
+<h1>Sideshow — minimal XHTML5/JS/CSS presentations</h1>
 </header>
 
 <ul>
@@ -22,7 +22,7 @@
 <li>You can use it to write presentations, too</li>
 <li>You can find/fork the code on github (BSD/MIT/X11 license):</li>
 <li><a href="http://github.com/wcmaier/sideshow/">http://github.com/wcmaier/sideshow/</a></li>
-<li>See the next slide for an example</li>
+<li>See the next slide for an example (press spacebar/page down)</li>
 </ul>
 
 </section>
@@ -34,15 +34,12 @@
 </header>
 
 <ul>
-<li>Start with a (X)HTML5 document with <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> tags</li>
-<li>Load <a href="https://github.com/wcmaier/sideshow/blob/master/css/sideshow.css">sideshow.css</a></li>
-<li>Load <a href="http://jquery.com/">jQuery</a>, <a href="http://benalman.com/projects/jquery-hashchange-plugin/">jQuery-hashchange</a> and <a href="https://github.com/wcmaier/sideshow/blob/master/js/sideshow.js">sideshow.js</a></li>
-<li>Add a <code>&lt;script&gt;</code> at the end and call <code>$("article").sideshow()</code></li>
+<li>Start with a (X)HTML5 document with <code>&lt;article id="sideshow"&gt;</code> and <code>&lt;section&gt;</code> tags</li>
+<li>Load <a href="https://github.com/wcmaier/sideshow/blob/master/css/sideshow.css">sideshow.css</a> and <a href="https://github.com/wcmaier/sideshow/blob/master/js/sideshow.js">sideshow.js</a></li>
+<li>Add a <code>&lt;script&gt;</code> at the end and call <code>sideshow.init("sideshow");</code></li>
 <li>The <code>&lt;article&gt;</code> becomes the presentation</li>
 <ul>
 <li>Each <code>&lt;section&gt;</code> within the <code>&lt;article&gt;</code> will become a slide</li>
-<li>If the <code>&lt;article&gt;</code> has a <code>&lt;header&gt;</code> and/or <code>&lt;footer&gt;</code>, they'll show up on each slide</li>
-<li>If a <code>&lt;section&gt;</code> has a <code>&lt;header&gt;</code> and/or <code>&lt;footer&gt;</code>, they'll only show up on that slide</li>
 </ul>
 
 </ul>
