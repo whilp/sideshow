@@ -78,6 +78,7 @@ var sideshow = function () {
     return {
         current: current,
         slides: slides,
+        bindings: bindings,
         keyHandler: keyHandler,
         hashHandler: hashHandler,
         init: init,
