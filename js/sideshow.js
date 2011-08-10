@@ -45,12 +45,20 @@ var sideshow = function () {
         bindings[key]();
     }
 
+    function hashHandler () {
+        var index = 1;
+        if (window.location.hash)
+            index = parseInt(location.hash.slice(6), 10);
+        goto(index - 1);
+    }
+
     function goto (index) {
         if (index >= slides.length || index < 0)
             return;
         removeClass(slides[current], "current-slide");
         current = index;
         addClass(slides[current], "current-slide");
+        window.location.hash = "#slide" + (current + 1);
     }
 
     function init (root) {
@@ -61,15 +69,17 @@ var sideshow = function () {
             addClass(slides[i], "slide");
         }
 
-        goto(0);
+        hashHandler();
 
         document.onkeypress = keyHandler;
+        window.onhashchange = hashHandler;
     }
 
     return {
         current: current,
         slides: slides,
         keyHandler: keyHandler,
+        hashHandler: hashHandler,
         init: init,
         goto: goto,
     }
