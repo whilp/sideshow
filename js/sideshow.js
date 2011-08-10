@@ -1,6 +1,14 @@
 var sideshow = function () {
     var slides = [],
         current = 0;
+    var bindings = {
+        33: function () { /* page up */
+            goto(current - 1);
+        },
+        34: function () { /* page down */
+            goto(current + 1);
+        },
+    }
 
     function hasClass (elem, cls) {
         var names = elem.className.split(" ");
@@ -30,6 +38,13 @@ var sideshow = function () {
         elem.className = names.join(" ");
     }
 
+    function keyHandler (event) {
+        var event = window.event ? window.event : event;
+        var key = event.charCode ? event.charCode : event.keyCode;
+
+        bindings[key]();
+    }
+
     function goto (index) {
         if (index > slides.length)
             return;
@@ -47,11 +62,14 @@ var sideshow = function () {
         }
 
         goto(0);
+
+        document.onkeypress = keyHandler;
     }
 
     return {
         current: current,
         slides: slides,
+        keyHandler: keyHandler,
         init: init,
         goto: goto,
     }
