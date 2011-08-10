@@ -2,6 +2,9 @@ var sideshow = function () {
     var slides = [],
         current = 0;
     var bindings = {
+        32: function () { /* space */
+            goto(current + 1);
+        },
         33: function () { /* page up */
             goto(current - 1);
         },
