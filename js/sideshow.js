@@ -53,6 +53,23 @@ var sideshow = function () {
             bindings[key]();
     }
 
+    function mouseHandler (coord) {
+        var x = coord.x.down - coord.x.up;
+        var y = coord.y.down - coord.y.up;
+    }
+
+    function mouseDownHandler (event) {
+        mouseCoord.x.down = event.pageX;
+        mouseCoord.y.down = event.pageY;
+    }
+
+    function mouseUpHandler (event) {
+        mouseCoord.x.up = event.pageX;
+        mouseCoord.y.up = event.pageY;
+
+        mouseHandler(mouseCoord);
+    }
+
     function hashHandler () {
         var index = 1;
         if (window.location.hash)
@@ -80,6 +97,8 @@ var sideshow = function () {
         hashHandler();
 
         document.onkeydown = keyHandler;
+        document.onmousedown = mouseDownHandler;
+        document.onmouseup = mouseUpHandler;
         window.onhashchange = hashHandler;
     }
 
@@ -88,6 +107,9 @@ var sideshow = function () {
         slides: slides,
         bindings: bindings,
         mouseCoord: mouseCoord,
+        mouseUpHandler: mouseUpHandler,
+        mouseDownHandler: mouseDownHandler,
+        mouseHandler: mouseHandler,
         keyHandler: keyHandler,
         hashHandler: hashHandler,
         init: init,
