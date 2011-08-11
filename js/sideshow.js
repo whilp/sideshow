@@ -16,6 +16,7 @@ var sideshow = function () {
         x: { down: null, up: null },
         y: { down: null, up: null },
     }
+    var swipeThreshold = 50;
 
     function hasClass (elem, cls) {
         var names = elem.className.split(" ");
@@ -56,6 +57,12 @@ var sideshow = function () {
     function mouseHandler (coord) {
         var x = coord.x.down - coord.x.up;
         var y = coord.y.down - coord.y.up;
+
+        if (Math.max(x, y) > swipeThreshold) {
+            goto(current - 1);
+        } else if (Math.min(x, y) < -swipeThreshold) {
+            goto(current + 1);
+        }
     }
 
     function mouseDownHandler (event) {
@@ -110,6 +117,7 @@ var sideshow = function () {
         mouseUpHandler: mouseUpHandler,
         mouseDownHandler: mouseDownHandler,
         mouseHandler: mouseHandler,
+        swipeThreshold: swipeThreshold,
         keyHandler: keyHandler,
         hashHandler: hashHandler,
         init: init,
