@@ -12,6 +12,10 @@ var sideshow = function () {
             goto(current + 1);
         },
     }
+    var mouseCoord = {
+        x: { down: null, up: null },
+        y: { down: null, up: null },
+    }
 
     function hasClass (elem, cls) {
         var names = elem.className.split(" ");
@@ -83,6 +87,7 @@ var sideshow = function () {
         current: current,
         slides: slides,
         bindings: bindings,
+        mouseCoord: mouseCoord,
         keyHandler: keyHandler,
         hashHandler: hashHandler,
         init: init,
