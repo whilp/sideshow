@@ -71,7 +71,7 @@ var sideshow = function () {
         button.id = buttonid;
         button.href = "#";
         button.className = "control-button";
-        button.text = text;
+        button.innerHTML = text;
         button.onclick = function (event) {
             event.preventDefault();
             action(event);
