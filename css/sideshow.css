@@ -1,7 +1,3 @@
-body {
-    overflow: hidden;
-}
-
 .slide {
     width: 100%;
     background: none;
@@ -17,7 +13,7 @@ body {
 .controls {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    right: 0;
     opacity: .1;
 }
 
