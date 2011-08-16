@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 .slide {
     width: 100%;
     background: none;
@@ -5,6 +9,26 @@
 
 .current-slide {
     display: block;
+}
+
+.controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: .1;
+}
+
+.controls:hover {
+    opacity: .5;
+}
+
+.controls .control-button {
+    text-decoration: none;
+    font-size: 200%;
+    font-weight: 900;
+    text-align: center;
+    float: right;
+    padding: .5em;
 }
 
 @media screen {

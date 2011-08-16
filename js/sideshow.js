@@ -1,6 +1,7 @@
 var sideshow = function () {
     var slides = [],
-        current = 0;
+        current = 0,
+        controls;
     var bindings = {
         32: function () { /* space */
             goto(current + 1);
@@ -65,6 +66,30 @@ var sideshow = function () {
         window.location.hash = "#slide" + (current + 1);
     }
 
+    function button (parent, buttonid, text, action) {
+        var button = document.createElement("a");
+        button.id = buttonid;
+        button.href = "#";
+        button.className = "control-button";
+        button.text = text;
+        button.onclick = function (event) {
+            event.preventDefault();
+            action(event);
+        }
+        parent.appendChild(button);
+    }
+
+    function initControls (root) {
+        controls = document.createElement("div");
+        controls.className = "controls";
+
+        button(controls, "control-next", "→", function (event) { goto(current + 1); });
+        button(controls, "control-toggle", "#", function (event) { });
+        button(controls, "control-prev", "←", function (event) { goto(current - 1); });
+
+        root.insertBefore(controls, root.firstChild);
+    }
+
     function init (root) {
         var root = document.getElementById(root);
         slides = root.getElementsByTagName("section");
@@ -73,6 +98,7 @@ var sideshow = function () {
             addClass(slides[i], "slide");
         }
 
+        initControls(root);
         hashHandler();
 
         document.onkeydown = keyHandler;
