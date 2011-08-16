@@ -84,7 +84,6 @@ var sideshow = function () {
         controls.className = "controls";
 
         button(controls, "control-next", "→", function (event) { goto(current + 1); });
-        button(controls, "control-toggle", "#", function (event) { });
         button(controls, "control-prev", "←", function (event) { goto(current - 1); });
 
         root.insertBefore(controls, root.firstChild);
