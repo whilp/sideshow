@@ -1,0 +1,7 @@
+.controls {
+    display: none;
+}
+
+.slide {
+    page-break-after: always;
+}

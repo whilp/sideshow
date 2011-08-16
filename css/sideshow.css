@@ -5,6 +5,9 @@ body {
 .slide {
     width: 100%;
     background: none;
+    top: 0;
+    height: 100%;
+    display: none;
 }
 
 .current-slide {
@@ -29,22 +32,4 @@ body {
     text-align: center;
     float: right;
     padding: .5em;
-}
-
-@media screen {
-    .slide {
-        top: 0;
-        height: 100%;
-        display: none;
-    }
-
-    .current-slide {
-        display: block;
-    }
-}
-
-@media print {
-    .slide {
-        page-break-after: always;
-    }
 }
