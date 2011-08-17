@@ -10,22 +10,37 @@
 }
 
 .controls {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    opacity: .1;
+    opacity: 0;
 }
 
 .controls:hover {
-    opacity: .5;
+    opacity: .3;
 }
 
 .controls .control-button {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 10%;
+    display: block;
+    background: #ccc;
     text-decoration: none;
-    font-size: 200%;
+    font-size: 700%;
     font-weight: 900;
     text-align: center;
-    float: left;
-    padding: .5em;
-    margin: .5em;
+}
+
+.controls .control-button span {
+    height: 10%;
+    top: 45%;
+    position: relative;
+    display: block;
+}
+
+#control-next {
+    right: 0;
+}
+
+#control-prev {
+    left: 0;
 }
